@@ -18,7 +18,7 @@ describe PagesController do
       get 'home'
       response.should have_selector("title", 
                                                     :content => "#{@base_title} | Home")
-      end
+    end
       
     it "should have a non-blank body" do
       get 'home'
