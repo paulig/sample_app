@@ -11,5 +11,11 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :name, :email
+  attr_accessible :name, :email # vain näitä muuttujia on mahdollita muokata
+
+validates :name, :presence => true
+validates :email, :presence => true
+
+
 end
+
