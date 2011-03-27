@@ -24,16 +24,22 @@ describe UsersController do
       response.should have_selector('title', :content => @user.name)
     end
       
-      it "should have the users name" do
+    it "should have the users name" do
         get :show, :id => @user
         response.should have_selector('h1', :content => @user.name)
-      end
+    end
       
-      it "should have a profile image" do
+    it "should have a profile image" do
         get :show, :id => @user
         response.should have_selector('h1>img', :class => "gravatar")
-      end     
+    end     
+      
+    it "should have the right URL" do
+        get :show, :id => @user
+        response.should have_selector('td>a', :content => user_path(@user),
+                                                                :href => user_path(@user))
     end
+  end
   
   describe "GET 'new'" do
     it "should be successful" do
