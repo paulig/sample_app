@@ -16,6 +16,11 @@ module SessionsHelper
   def signed_in?
     !current_user.nil?
   end
+  
+  def sign_out
+    cookies.delete(:remember_token)
+    current_user = nil # tai .self.current_user. Jos käyttää lyhyempää muotoa spec_helper =>   Rspec.configure do |config| :  controller.sign_in(user)    
+  end
     
   private
   
