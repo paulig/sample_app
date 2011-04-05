@@ -21,7 +21,11 @@ module SessionsHelper
     cookies.delete(:remember_token)
     current_user = nil # tai .self.current_user. Jos käyttää lyhyempää muotoa spec_helper =>   Rspec.configure do |config| :  controller.sign_in(user)    
   end
-    
+  
+  def deny_access
+    redirect_to signin_path, :notice => "Please sign in to access this page."
+  end
+  
   private
   
     def user_from_remember_token
