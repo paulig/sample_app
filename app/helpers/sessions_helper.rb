@@ -5,9 +5,10 @@ module SessionsHelper
     current_user = user
   end
   
-  def current_user=(user)
-    @current_user = user
-  end
+  # Mikä tämä on?
+  #def current_user=(user)
+    #@current_user = user
+  #end
   
   def current_user
     @current_user ||= user_from_remember_token
@@ -22,8 +23,8 @@ module SessionsHelper
     current_user = nil # tai .self.current_user. Jos käyttää lyhyempää muotoa spec_helper =>   Rspec.configure do |config| :  controller.sign_in(user)    
   end
   
-  def current_user?
-    @user == current_user
+  def current_user?(user)
+    user == current_user
   end
   
   def deny_access
